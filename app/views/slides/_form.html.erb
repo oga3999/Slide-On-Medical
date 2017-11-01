@@ -1,0 +1,32 @@
+<%= form_for(@slide) do |f|%>
+  <% if @slide.errors.any? %>
+    <div class"alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label1="Close"><span aria-hidden="true">&times;</span></button>
+      <h2><%= @slide.errors.count%>件のエラーがあります</h2>
+      <ul style="list-style:none">
+        <% @slide.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @slide.slide? %>
+    <iframe frameborder= "0"  height= "500"  scrolling= "no"  src= "<%= @slide.slide.url %>"  style="width: 50%; height: 500px; display:inline-block "  scrolling="yes" webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="no" >
+  <% end %><br>
+  <%= f.label :slide %>
+  <%= f.file_field :slide %>
+  <%= f.hidden_field :slide_cache %>
+
+  <% if @slide.persisted? && @slide.slide? %>
+  <label>
+    <%= f.check_box :remove_slide %>
+    画像を削除<br>
+  </label>
+  <% end %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+
+  <%= f.submit "投稿", class:"btn btn-success" %>
+<% end %>
