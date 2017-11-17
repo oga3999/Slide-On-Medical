@@ -1,7 +1,7 @@
 class SlideUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -30,9 +30,20 @@ class SlideUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+  version :thumb do
+      process :cover
+      process :resize_to_limit => [300, 300]
+      process :convert => 'png'
+      # def full_filename (for_file = model.logo.file)
+      #   "thumbnail.jpg"
+      # end
+    end
+
+  def cover
+      manipulate! do |frame, index|
+      frame if index.zero?
+    end
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -42,14 +53,14 @@ class SlideUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-    "viewer.html?file=#{secure_token}.#{file.extension}" if original_filename.present?
-  end
-
-  protected
-  def secure_token
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-  end
+  # def filename
+  #   "viewer.html?file=#{secure_token}.#{file.extension}" if original_filename.present?
+  # end
+  #
+  # protected
+  # def secure_token
+  #   var = :"@#{mounted_as}_secure_token"
+  #   model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  # end
 
 end

@@ -1,0 +1,20 @@
+<%= form_for([@slide, @comment], remote: true) do |f| %>
+  <% if comment.errors.any? %>
+    <div class"alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label1="Close"><span aria-hidden="true">&times;</span></button>
+      <h2><%= comment.errors.count%>件のエラーがあります</h2>
+      <ul style="list-style:none">
+        <% comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-md-10 comment-write">
+    <%= f.hidden_field :slide_id %>
+    <%= f.text_field :content, placeholder: "コメントを記載", class:"form-control" %>
+  </div>
+  <div class="col-md-2 comment-submit">
+    <%= f.submit "Push", class:"comment-form-btn btn btn-ptimary" %>
+  </div>
+<% end %>

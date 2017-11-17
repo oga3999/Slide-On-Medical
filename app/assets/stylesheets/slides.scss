@@ -1,3 +1,96 @@
 // Place all the styles related to the slides controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* index */
+.slide-thumb {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.slide-index-box {
+  box-shadow:0px 0px 3px;
+  background: white;
+  padding: 5px;
+}
+
+.slide-index-box {
+  color: #767373;
+}
+
+
+.slide-index-title {
+  font-size: 15px;
+  color: #767373;
+}
+
+.slide-up-time {
+  font-size: 5px;
+}
+
+.slide-index-tag {
+  padding: 5px;
+}
+
+/* comment form */
+.comment-form {
+  background: white;
+  padding: 10px;
+  border-bottom: 1px solid #D7D8D7;
+}
+
+.comment-write {
+  padding-right: 2px;
+}
+
+.comment-form-btn {
+  color: white;
+  background: #29E732;
+}
+.comment-form-btn:hover {
+  color: white;
+  background: #0EC016;
+}
+
+
+.comment-submit {
+  padding: 0px 15px 0px 0px;
+}
+
+.comment-form-btn {
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* comment index */
+.comment-index-box {
+  background: white;
+  border-bottom: 1px solid #D7D8D7;
+  padding: 15px 3px;
+}
+
+.comment-creat-at {
+  display: inline-block;
+  float: left;
+}
+
+.comment-edit-btn {
+  float: right;
+}
+
+//icon
+.fa.fa-pencil-square-o.fa-lg {
+  color: #04AC0B;
+}
+.fa.fa-trash-o.fa-lg {
+  color: #04AC0B;
+}
+
+/* タグクラウド */
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }

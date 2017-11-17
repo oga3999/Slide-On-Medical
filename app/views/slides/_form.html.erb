@@ -21,12 +21,15 @@
   <% if @slide.persisted? && @slide.slide? %>
   <label>
     <%= f.check_box :remove_slide %>
-    画像を削除<br>
+    スライドを削除<br>
   </label>
   <% end %>
 
   <%= f.label :title %>
   <%= f.text_field :title, class: "form-control" %>
+
+  <%= f.label :tag_list, "タグを記載（カンマ区切りで記載）" %><br>
+  <%= text_field_tag 'slide[tag_list]', @slide.tag_list.join(',') %>
 
   <%= f.submit "投稿", class:"btn btn-success" %>
 <% end %>

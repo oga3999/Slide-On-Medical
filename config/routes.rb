@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users, controllers: {
+      omniauth_callbacks: "users/omniauth_callbacks"
+    }
   root 'top#index'
 
-  resources :slides, only:[:index, :new, :create, :update, :destroy, :edit]
+  resources :slides do
+    resources :comments
+    collection do
+      get 'tag'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
