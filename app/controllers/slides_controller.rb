@@ -2,7 +2,29 @@ class SlidesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_slides, only:[:edit,:update,:destroy,:show]
 
+  def top
+    @slides = Slide.all.order('created_at desc').limit(6)
+    @rank = Slide.find(Like.group(:slide_id).order('count(slide_id) desc').limit(6).pluck(:slide_id))
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @slides }
+    end
+  end
+
   def index
+    @slides = Slide.all
+    @tags = Slide.tag_counts_on(:tags)
+    @rank = Slide.find(Like.group(:slide_id).order('count(slide_id) desc').limit(6).pluck(:slide_id))
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @slides }
+    end
+  end
+
+  def user_slide
+    @user = current_user
     @slides = Slide.all
     @tags = Slide.tag_counts_on(:tags)
 
@@ -37,6 +59,7 @@ class SlidesController < ApplicationController
     @slide.user_id = current_user.id
     if @slide.save
       redirect_to slides_path, notice:"スライドを投稿しました！"
+      NoticeMailer.sendmail_slide(@slide).deliver
     else
       render 'new'
     end
@@ -56,7 +79,7 @@ class SlidesController < ApplicationController
 
 private
   def slides_params
-    params.require(:slide).permit(:title, :slide,:slide_cache, :slide_url, :slide_auther_comment, :remove_image, :tag_list)
+    params.require(:slide).permit(:title, :slide, :slide_cache, :slide_url, :author_comment, :remove_slide, :tag_list)
   end
 
   def set_slides

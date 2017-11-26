@@ -1,0 +1,58 @@
+<div class="top-body">
+<div class="top-container">
+  <div class="top-box">
+    <div  class="top-title">
+      <h1>Welcome to Slide On Medical !!</h1>
+    </div>
+    <div class="top-btn">
+      <%= link_to "投稿", new_slide_path, class: 'topbtn btn btn-default btn-outline btn-lg' %>
+      <%= link_to "一覧", slides_path, class: 'topbtn btn btn-default btn-outline btn-lg' %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<h2>Recommend</h2>
+<div class="row index-row">
+  <% @rank.each do |rank| %>
+    <div class="col-md-3">
+     <div class="slide-index-box">
+  　   <div class="slides-index-thumb">
+        <%= link_to image_tag("#{rank.slide_url(:thumb)}", class: "slide-thumb"), slide_path(rank) %>
+       </div>
+        <div class="slide-index-title-box">
+          <p class="slide-up-time">投稿日：<%= rank.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+          <p><%= link_to "#{rank.title}", slide_path(rank), class: "slide-index-title"  %></p>
+        </div>
+        <div class="slide-index-tag">
+         <p><%= render 'slides/tag_list', tag_list: rank.tag_list %></p>
+         <p><%= render partial: 'slides/slides', collection: @rank, as: :slide %></p>
+        </div>
+     </div>
+    </div>
+</div>
+  <% end %>
+
+<h2>Recent</h2>
+<div class="row">
+  <% @slides.each do |slide| %>
+    <div class="col-md-3">
+     <div class="slide-index-box">
+  　    <div class="slides-index-thumb">
+          <%= link_to image_tag("#{slide.slide_url(:thumb)}", class: "slide-thumb"), slide_path(slide) %>
+        </div>
+          <div class="slide-index-title-box">
+            <p class="slide-up-time">投稿日：<%= slide.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+            <p><%= link_to "#{slide.title}", slide_path(slide), class: "slide-index-title"  %></p>
+          </div>
+          <div class="slide-index-tag">
+            <p><%= render 'slides/tag_list', tag_list: slide.tag_list %></p>
+            <p><%= render partial: 'slides/slides', collection: @slides, as: :slide %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+</div>

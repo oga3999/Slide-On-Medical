@@ -1,8 +1,82 @@
 // Place all the styles related to the slides controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* top */
+.top-body {
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 10px;
+  background-image: linear-gradient(-90deg, #508CED, #CC0085);
+}
+
+.top-body h2 {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.navbar {
+  margin-bottom: 0px;;
+  }
+
+.top-container {
+  height: 300px;
+}
+
+.top-box {
+  position: relative;
+  top: 100px;
+}
+
+.top-title h1 {
+  font-size: 50px;
+  border: none;
+  color: white;
+  margin: 0px;
+}
+
+.top-btn {
+  text-align: center;
+}
+
+.top-btn a.btn.btn-outline.btn-default {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px 5px 0px;
+  width: 370px;
+  background:none;
+  border:2px solid white;
+  color: white;
+}
+.top-btn a.btn.btn-outline.btn-default:hover,
+.top-btn a.btn.btn-outline.btn-default:active {
+  color: white;
+  background: rgba(236,53,173,0.7);
+  border-color: white;
+}
+
 
 /* index */
+.index-body {
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 10px;
+  background-image: linear-gradient(-90deg, #508CED, #CC0085);
+  h1 {
+    color: white;
+    border-bottom: 2px solid white;
+  }
+}
+
+.index-tag h3 {
+  display: inline-block;
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+.index-row {
+  margin-bottom: 10px;
+}
+
 .slide-thumb {
   position: relative;
   top: 0;
@@ -23,7 +97,7 @@
 
 .slide-index-title {
   font-size: 15px;
-  color: #767373;
+  color: white;
 }
 
 .slide-up-time {
@@ -32,6 +106,12 @@
 
 .slide-index-tag {
   padding: 5px;
+}
+
+/*show*/
+.show-container {
+  margin: 0px;
+  padding: 10px;
 }
 
 /* comment form */
@@ -89,8 +169,47 @@
   color: #04AC0B;
 }
 
+/* user-edit-slide */
+a.edit-btn.btn.btn-outline.btn-default {
+  font-size: 13px;
+  background:none;
+  border:1px solid #767373;
+  color: #767373;
+}
+a.edit-btn.btn.btn-outline.btn-default:hover,
+a.edit-btn.btn.btn-outline.btn-default:active {
+  color: #767373;
+  background: rgba(236,53,173,0.7);
+  border-color: #767373;
+}
+
+
 /* タグクラウド */
-.css1 { font-size: 1.0em; }
-.css2 { font-size: 1.2em; }
-.css3 { font-size: 1.4em; }
-.css4 { font-size: 1.6em; }
+.tag-all {
+  font-size: 23px;
+  color: white;
+  margin: 0px 0px 10px;
+  display: inline-block;
+}
+.tag-all:hover {
+  color: white;
+}
+
+
+.css1, .css2, .css3, .css4 {
+  display: inline-block;
+  margin: 0px 5px 5px;
+  padding: 3px 5px;
+  font-size: 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  background: rgba(255,3,231,0.7);
+}
+.css1:hover,
+.css2:hover,
+.css3:hover,
+.css4:hover {
+  color: white;
+  background: rgba(236,53,173,0.7);
+}

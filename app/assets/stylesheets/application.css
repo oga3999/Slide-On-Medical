@@ -52,6 +52,7 @@ body {
    background-color: white;
    padding: 10px 0 0px 0;
    margin: auto;
+   padding-top: 10px;
    padding-bottom: 0px;
    font-size: 15px;
    position: relative;
@@ -60,3 +61,18 @@ body {
    border: solid #eeeeee 2px;
    color: #767373;
  }
+
+
+/*device*/
+.field {
+  margin-top: 5px;
+}
+
+.actions {
+ margin-top: 5px;
+}
+
+/*notice*/
+.alert {
+  margin: 0px;
+}

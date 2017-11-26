@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
+      registrations: "users/registrations",
       omniauth_callbacks: "users/omniauth_callbacks"
     }
-  root 'top#index'
+
+  root 'slides#top'
 
   resources :slides do
     resources :comments
@@ -12,6 +17,11 @@ Rails.application.routes.draw do
       get 'tag'
     end
   end
+
+  get '/user_slide' => 'slides#user_slide', as: 'user_slide'
+
+  post   '/like/:slide_id' => 'likes#like',   as: 'like'
+  delete '/like/:slide_id' => 'likes#unlike', as: 'unlike'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

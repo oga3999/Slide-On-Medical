@@ -16,10 +16,10 @@
 
   /* outline button style */
   .btn-outline{}
-  .btn-outline.btn-default       {background:none;border:1px solid #FFF;color:#FFF;}
+  .btn-outline.btn-default       {background:#29E732;border:1px solid #ccc;color:#fff;}
   .btn-outline.btn-default:hover,
-  .btn-outline.btn-default:active{color:#FFF;background:#ff5722;border-color:#FFF;}
-  .btn-outline.btn-primary       {background:none;border:1px solid #fff;color:#fff;background: #ff5722;}
+  .btn-outline.btn-default:active{color:#fff;background:#0EC016;border-color:#767373;}
+  .btn-outline.btn-primary       {background:none;border:1px solid #ccc;color:#fff;background: #ff5722;}
   .btn-outline.btn-primary:hover,
   .btn-outline.btn-primary:active{color:#FFF;background:#d84315;border-color:#fff;}
   .btn-outline.btn-success       {background:none;border:2px solid #5cb85c;color:#5cb85c;font-weight:bold;}

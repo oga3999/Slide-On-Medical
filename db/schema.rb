@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116140025) do
+ActiveRecord::Schema.define(version: 20171119145310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,21 @@ ActiveRecord::Schema.define(version: 20171116140025) do
   add_index "comments", ["slide_id"], name: "index_comments_on_slide_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "slide_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "slides", force: :cascade do |t|
     t.string   "title"
     t.text     "slide_url"
-    t.text     "slide_author_comment"
+    t.text     "author_comment"
     t.text     "slide"
     t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -73,11 +80,22 @@ ActiveRecord::Schema.define(version: 20171116140025) do
     t.string   "name"
     t.string   "avatar"
     t.boolean  "admin",                  default: false
+    t.string   "uid",                    default: "",    null: false
+    t.string   "provider",               default: "",    null: false
+    t.string   "image_url"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
   add_foreign_key "comments", "slides"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "slides"
+  add_foreign_key "likes", "users"
 end

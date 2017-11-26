@@ -1,24 +1,29 @@
+<div class="index-body">
 <div class="container">
-  <h2><%= "\"#{params[:name]}\"タグの" if params[:name] %>スライド一覧 </h2>
-  <div class="row">
-    <%= link_to '全て表示', [:slides] %>
+  <div class="index-tag row">
+    <h3>タグで検索</h3></br>
+    <%= link_to '全て表示', [:slides], class: "tag-all" %></br>
     <% tag_cloud(Slide.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
-      <%= link_to tag.name, { :action => :tag, :name => tag.name }, :class => css_class %>
+        <%= link_to tag.name, { :action => :tag, :name => tag.name }, {:class => css_class} %>
     <% end %></br>
   </div>
 
+
+<h1><%= "\"#{params[:name]}\"タグの" if params[:name] %>スライド一覧 </h1>
   <div class="row">
     <% @slides.each do |slide| %>
       <div class="col-md-3">
-        <div class="slide-index-box">
+       <div class="slide-index-box">
     　    <div class="slides-index-thumb">
             <%= link_to image_tag("#{slide.slide_url(:thumb)}", class: "slide-thumb"), slide_path(slide) %>
+          </div>
             <div class="slide-index-title-box">
               <p class="slide-up-time">投稿日：<%= slide.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
               <p><%= link_to "#{slide.title}", slide_path(slide), class: "slide-index-title"  %></p>
             </div>
             <div class="slide-index-tag">
               <p><%= render 'slides/tag_list', tag_list: slide.tag_list %></p>
+              <p><%= render partial: 'slides/slides', collection: @slides, as: :slide %></p>
             </div>
           </div>
         </div>
