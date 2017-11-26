@@ -1,16 +1,15 @@
 <div class="container">
   <h2><%= @user.name %>のスライド一覧 </h2>
-
-<div class="row">
-  <% @slides.each do |slide| %>
-    <% if current_user.id == slide.user_id %>
-      <div class="col-md-3">
-       <div class="slide-index-box">
-         <%= link_to "編集", edit_slide_path(slide.id), class: "edit-btn btn btn-default btn-outline"  %>
-         <%= link_to "削除", slide_path(slide.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'edit-btn btn btn-default btn-outline' %>
-    　    <div class="slides-index-thumb">
-            <%= link_to image_tag("#{slide.slide_url(:thumb)}", class: "slide-thumb"), slide_path(slide) %>
-          </div>
+  <div class="row">
+    <% @slides.each do |slide| %>
+      <% if current_user.id == slide.user_id %>
+        <div class="col-md-3">
+         <div class="slide-index-box">
+          <%= link_to "編集", edit_slide_path(slide.id), class: "edit-btn btn btn-default btn-outline"  %>
+          <%= link_to "削除", slide_path(slide.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'edit-btn btn btn-default btn-outline' %>
+      　    <div class="slides-index-thumb">
+              <%= link_to image_tag("#{slide.slide_url(:thumb)}", class: "slide-thumb"), slide_path(slide) %>
+            </div>
             <div class="slide-index-title-box">
               <p class="slide-up-time">投稿日：<%= slide.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
               <p><%= link_to "#{slide.title}", slide_path(slide), class: "slide-index-title"  %></p>
@@ -19,9 +18,9 @@
               <p><%= render 'slides/tag_list', tag_list: slide.tag_list %></p>
               <p><%= render partial: 'slides/slides', collection: slide, as: :slide %></p>
             </div>
-          </div>
+         </div>
         </div>
-      </div>
+  </div>
     <% else %>
       <h2 style="border: none;, ">投稿されたスライドはありません。</h2>
     <% end %>
