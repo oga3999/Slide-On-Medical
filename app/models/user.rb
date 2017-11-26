@@ -47,6 +47,11 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
+
+
   # def update_with_password(params, *options)
   #   if provider.blank?
   #     super
@@ -69,9 +74,5 @@ class User < ActiveRecord::Base
     result
   end
 
-
-  def self.create_unique_string
-    SecureRandom.uuid
-  end
 
 end
