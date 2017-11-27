@@ -1,13 +1,13 @@
 <div class="like-link" id="like-link-<%=slide.id%>">
   <% if current_user.likes.find_by(slide_id: slide.id) %>
     <%= link_to unlike_path(slide.id), method: :delete, remote: true do %>
-      <span  class="btn btn-default glyphicon glyphicon-heart" id= "heart-<%=slide.id%>">  <%= slide.likes.count.to_s %>
-</span>
+      <div  class="btn btn-default glyphicon glyphicon-heart" id="heart-<%=slide.id%>">  <%= slide.likes.count.to_s %>
+</div>
   <% end %>
   <% else %>
     <%= link_to like_path(slide.id), method: :post, remote: true do %>
-      <span  class="btn btn-default glyphicon glyphicon-heart-empty" id= "heart-<%=slide.id%>">  <%= slide.likes.count.to_s %>
-</span>
+      <div  class="btn btn-default glyphicon glyphicon-heart-empty" id="heart-<%=slide.id%>">  <%= slide.likes.count.to_s %>
+</div>
     <% end %>
   <% end %>
 </div>

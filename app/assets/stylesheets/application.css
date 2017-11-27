@@ -39,11 +39,14 @@ body {
 
  .main-wrapper {
    min-height: 100%;
-   margin-bottom: -50px;
  }
 
 .push{
   height: 50px;
+}
+
+.navbar-default {
+  background: white;
 }
 
  footer {

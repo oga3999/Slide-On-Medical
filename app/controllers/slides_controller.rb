@@ -76,6 +76,11 @@ class SlidesController < ApplicationController
     end
   end
 
+  def destroy
+    @slide.destroy
+    redirect_to slides_path, notice:"スライドを削除しました！"
+  end
+
 
 private
   def slides_params

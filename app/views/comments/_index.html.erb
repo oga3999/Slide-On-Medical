@@ -6,7 +6,8 @@
 <% @comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <div class="row comment-index-box">
-      <div class="col-md-1">
+      <div class="col-md-1 profile-img">
+        <%= profile_img(comment.user) %>
       </div>
       <div class="col-md-11">
         <p class="comment-user-name"><%= comment.user.name %></p>
@@ -14,7 +15,7 @@
         <span class="comment-create-at"><%= comment.created_at.strftime("%y/%m/%d %p %l:%M") %></span>
         <% if current_user.id == comment.user.id %>
           <span class="comment-edit-btn">
-            <%= link_to '', edit_slide_comment_path(@slide, comment), class: "fa fa-pencil-square-o fa-lg" %>
+            <%= link_to '', edit_slide_comment_path(@slide, comment), class: "fa fa-pencil-square-o fa-lg", remote: true %>
             <%= link_to '', slide_comment_path(@slide, comment), class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
           </span>
         <% end %>

@@ -15,8 +15,8 @@ before_action :set_variables
 
   def set_variables
     @slide = Slide.find(params[:slide_id])
-    @id_name = "id=\"like-link-#{@slide.id}\""
-    @id_heart = "id=\"heart-#{@slide.id}\""
+    @id_name = "#like-link-#{@slide.id}"
+    @id_heart = "#heart-#{@slide.id}"
   end
 
 end

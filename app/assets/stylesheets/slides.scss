@@ -97,11 +97,11 @@
 
 .slide-index-title {
   font-size: 15px;
-  color: white;
+  color: #000033;
 }
 
 .slide-up-time {
-  font-size: 5px;
+  font-size: 10px;
 }
 
 .slide-index-tag {
@@ -159,6 +159,11 @@
 
 .comment-edit-btn {
   float: right;
+}
+
+.profile-img img {
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px;
 }
 
 //icon

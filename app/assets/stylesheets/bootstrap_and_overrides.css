@@ -6,6 +6,12 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
+/*bootstrap*/
+.container {
+  min-height: 500px;
+  height: auto !important;
+}
+
 /* icon表記 */
   @font-face {
    font-family: 'Glyphicons Halflings';

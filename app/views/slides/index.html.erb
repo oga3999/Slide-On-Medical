@@ -17,17 +17,17 @@
     　    <div class="slides-index-thumb">
             <%= link_to image_tag("#{slide.slide_url(:thumb)}", class: "slide-thumb"), slide_path(slide) %>
           </div>
-            <div class="slide-index-title-box">
-              <p class="slide-up-time">投稿日：<%= slide.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
-              <p><%= link_to "#{slide.title}", slide_path(slide), class: "slide-index-title"  %></p>
-            </div>
-            <div class="slide-index-tag">
-              <p><%= render 'slides/tag_list', tag_list: slide.tag_list %></p>
-              <p><%= render partial: 'slides/slides', collection: @slides, as: :slide %></p>
-            </div>
+          <div class="slide-index-title-box">
+            <p class="slide-up-time">投稿日：<%= slide.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+            <p><%= link_to "#{slide.title}", slide_path(slide), class: "slide-index-title"  %></p>
           </div>
-        </div>
+          <div class="slide-index-tag">
+            <p><%= render 'slides/tag_list', tag_list: slide.tag_list %></p>
+            <p><%= render partial: 'slides/slides', collection: @slides, as: :slide %></p>
+          </div>
+       </div>
       </div>
+  </div>
     <% end %>
   </div>
 </div>
