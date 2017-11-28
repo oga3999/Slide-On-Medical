@@ -6,7 +6,7 @@
   <% end %>
   <% else %>
     <%= link_to like_path(slide.id), method: :post, remote: true do %>
-      <div  class="btn btn-default glyphicon glyphicon-heart-empty" id="heart-<%=slide.id%>">  <%= slide.likes.count.to_s %>
+      <div  class="btn btn-default fa fa-heart-o" id="heart-<%=slide.id%>">  <%= slide.likes.count.to_s %>
 </div>
     <% end %>
   <% end %>
