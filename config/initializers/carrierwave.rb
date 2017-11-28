@@ -18,6 +18,6 @@ CarrierWave.configure do |config|
       config.fog_directory = 'slideonmedical-development'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/slideonmedical-development'
   end
-
-  CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 end
+
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
