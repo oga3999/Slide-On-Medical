@@ -1,8 +1,7 @@
 <div class="container">
   <h2><%= @user.name %>のスライド一覧 </h2>
-  <div class="row">
-    <% @slides.each do |slide| %>
-      <% if current_user.id == slide.user_id %>
+   <% @slides.each do |slide| %>
+     <% if current_user.id == slide.user_id %>
         <div class="col-md-3">
          <div class="slide-index-box">
           <%= link_to "編集", edit_slide_path(slide.id), class: "edit-btn btn btn-default btn-outline"  %>
@@ -20,9 +19,6 @@
             </div>
          </div>
         </div>
-    <% else %>
-      <h2 style="border: none;">投稿されたスライドはありません。</h2>
-    <% end %>
-  <% end %>
-  </div>
+     <% end %>
+   <% end %>
 </div>
