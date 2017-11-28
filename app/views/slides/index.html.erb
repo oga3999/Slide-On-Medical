@@ -23,7 +23,7 @@
           </div>
           <div class="slide-index-tag">
             <p><%= render 'slides/tag_list', tag_list: slide.tag_list %></p>
-            <p><%= render partial: 'slides/slides', collection: @slides, as: :slide %></p>
+            <p><%= render partial: 'slides/slides', collection: slide, as: :slide %></p>
           </div>
        </div>
       </div>
