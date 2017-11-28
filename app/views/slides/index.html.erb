@@ -10,7 +10,8 @@
 
 
 <h1><%= "\"#{params[:name]}\"タグの" if params[:name] %>スライド一覧 </h1>
-    <% @slides.each do |slide| %>
+    <div class="row">
+     <% @slides.each do |slide| %>
       <div class="col-md-3">
        <div class="slide-index-box">
     　    <div class="slides-index-thumb">
@@ -26,6 +27,7 @@
           </div>
        </div>
       </div>
-    <% end %>
+     <% end %>
+    </div>
   </div>
 </div>
