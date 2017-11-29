@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root 'slides#top'
 
   resources :slides do
+    resources :likes, only: [:create, :destroy]
     resources :comments
     collection do
       get 'tag'

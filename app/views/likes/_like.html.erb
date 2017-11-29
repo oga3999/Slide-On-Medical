@@ -1,0 +1,15 @@
+<% if slide.like_user(current_user.id) %>
+  <%= button_to slide_like_path(like, slide_id: slide.id), method: :delete, id: "like-button", remote: true do %>
+    <span>
+      <%= fa_icon 'heart-o' %>
+      <%= slide.like_count %>
+    </span>
+  <% end %>
+<% else %>
+  <%= button_to slide_likes_path(slide), id: "like-button", remote: true do %>
+    <span>
+      <%= fa_icon 'heart' %>
+      <%= slide.like_count %>
+    </span>
+  <% end %>
+<% end %>

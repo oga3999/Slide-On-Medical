@@ -11,6 +11,19 @@ before_action :set_variables
     like.destroy
   end
 
+  def create
+    @like = Like.create(user_id: current_user.id, slide_id: params[:slide_id])
+    @likes = Like.where(slide_id: params[:slide_id])
+    @slides = Slide.all
+  end
+
+  def destroy
+    like = Like.find_by(user_id: current_user.id, slide_id: params[:slide_id])
+    like.destroy
+    @likes = Like.where(slide_id: params[:slide_id])
+    @slides = Slide.all
+  end
+
   private
 
   def set_variables

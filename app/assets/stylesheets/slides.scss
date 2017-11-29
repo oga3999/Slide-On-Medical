@@ -6,7 +6,7 @@
   margin: 0px;
   padding: 0px;
   padding-bottom: 10px;
-  background-image: linear-gradient(-90deg, #508CED, #CC0085);
+  background-image: linear-gradient(-90deg, #544554, #2B2629);
 }
 
 .top-body h2 {
@@ -60,7 +60,7 @@
   margin: 0px;
   padding: 0px;
   padding-bottom: 10px;
-  background-image: linear-gradient(-90deg, #508CED, #CC0085);
+  background-image: linear-gradient(-90deg, #544554, #2B2629);
   h1 {
     color: white;
     border-bottom: 2px solid white;
@@ -143,6 +143,10 @@
   width: 100%;
   font-size: 15px;
   font-weight: bold;
+}
+
+div.row.comment-form {
+  margin-bottom: 0px;
 }
 
 /* comment index */

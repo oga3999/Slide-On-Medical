@@ -10,8 +10,9 @@
 
 
 <h1><%= "\"#{params[:name]}\"タグの" if params[:name] %>スライド一覧 </h1>
+  <% @slides.each_slice(4) do |slides| %>
     <div class="row">
-     <% @slides.each do |slide| %>
+     <% slides.each do |slide| %>
       <div class="col-md-3">
        <div class="slide-index-box">
     　    <div class="slides-index-thumb">
@@ -23,11 +24,11 @@
           </div>
           <div class="slide-index-tag">
             <p><%= render 'slides/tag_list', tag_list: slide.tag_list %></p>
-            <p><%= render partial: 'slides/slides', collection: slide, as: :slide %></p>
           </div>
        </div>
       </div>
      <% end %>
-    </div>
+   </div>
+  <% end %>
   </div>
 </div>
