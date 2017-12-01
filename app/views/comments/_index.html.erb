@@ -1,9 +1,9 @@
 <div class="row comment_top">
   <div class="col-md-12" style="background: white;">
-    <h4><%= @comments.count %>件 <%= fa_icon 'comment-o' %></h4>
+    <h4><%= comments.count %>件 <%= fa_icon 'comment-o' %></h4>
   </div>
 </div>
-<% @comments.each do |comment| %>
+<% comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <div class="row comment-index-box">
       <div class="col-md-1 profile-img">
