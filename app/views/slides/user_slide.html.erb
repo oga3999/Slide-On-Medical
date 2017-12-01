@@ -7,7 +7,7 @@
         <div class="col-md-3">
          <div class="slide-index-box">
           <%= link_to "編集", edit_slide_path(slide.id), class: "edit-btn btn btn-default btn-outline"  %>
-          <%= link_to "削除", user_slide_path(slide.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'edit-btn btn btn-default btn-outline' %>
+          <%= link_to "削除", slide_path(slide.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'edit-btn btn btn-default btn-outline' %>
       　    <div class="slides-index-thumb">
               <%= link_to image_tag("#{slide.slide_url(:thumb)}", class: "slide-thumb"), slide_path(slide) %>
             </div>
